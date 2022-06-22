@@ -23,9 +23,8 @@ function SignIn() {
   };
 
   const onSubmit = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
-
       const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -43,7 +42,7 @@ function SignIn() {
 
   return (
     <>
-      <div className="pageContainer">
+      <div className="pageContainer" style={{"overflowY" : "hidden"}}>
         <header>
           <p className="pageHeader"> Welcome Back Pls Sign In!</p>
         </header>
@@ -73,11 +72,11 @@ function SignIn() {
               className="showPassword"
               onClick={() => setShowPassword((prevState) => !prevState)}
             />
-
-            <Link to="/forgot-password" className="forgotPasswordLink">
-              Forgot Password
-            </Link>
           </div>
+
+          <Link to="/forgot-password" className="forgotPasswordLink">
+            Forgot Password
+          </Link>
 
           <div className="signInBar">
             <p className="signInText">Sign In</p>
@@ -90,9 +89,7 @@ function SignIn() {
             </button>
           </div>
         </form>
-
-        <OAuth/>
-
+        <OAuth />
         <Link to="/sign-up" className="registerLink">
           Sign Up Instead
         </Link>

@@ -53,7 +53,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="pageContainer">
+      <div className="pageContainer" style={{"overflowY" : "hidden"}}>
         <header>
           <p className="pageHeader"> Welcome Back Pls Sign Up !</p>
         </header>
